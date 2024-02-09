@@ -8,9 +8,5 @@ def test_discovery():
         print(f"Host info: {mycomm.get_info()}")
         time.sleep(5)
 
-def test_filetransfer():
-    mycomm = DiscoveryComm.DiscoveryComm()
-    mycomm.initiate_file_transfer(apple_ip, "./host_files/hello.txt")
-
 if __name__ == "__main__":
     test_discovery()
