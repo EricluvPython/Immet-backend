@@ -30,10 +30,10 @@ class DiscoveryComm:
         # else:
         #     socketopn = socket.SO_REUSEPORT
         
-        self.discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
         # self.discovery_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
         self.discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        self.receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
         # self.receiver_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
         self.receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         self.receiver_socket.bind(('', self.discovery_port))
