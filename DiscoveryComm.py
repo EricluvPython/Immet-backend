@@ -4,6 +4,7 @@ import threading
 import time
 import platform
 import subprocess
+import netifaces as ni
 
 
 class DiscoveryComm:
@@ -16,7 +17,7 @@ class DiscoveryComm:
             self.ip = socket.gethostbyname(self.name)  # my ip
         else:
             try:
-                self.ip = subprocess.run(["ipconfig",  "getifaddr", "en0"], text=True, capture_output=True).stdout[:-1]
+                self.ip = self.get_ip()
             except:
                 print("Unrecognized OS!")
         init_info = {
@@ -39,6 +40,11 @@ class DiscoveryComm:
 
         self.file_sender_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.file_receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+    def get_ip(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        return s.getsockname()[0]
     
     # returns the summary about this node
     def get_info(self):
