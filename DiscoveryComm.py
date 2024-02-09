@@ -76,7 +76,7 @@ class DiscoveryComm:
     def send_discovery_message(self):
         while True:
             host_list = self.get_send_info()
-            self.discovery_socket.sendto(json.dumps(host_list).encode('utf-8'), ('<broadcast>', self.discovery_port))
+            self.discovery_socket.sendto(json.dumps(host_list).encode('utf-8'), ('255.255.255.255', self.discovery_port))
             #print(f"Sent discovery message: {host_list}")
             time.sleep(self.discovery_interval)
 
