@@ -25,15 +25,16 @@ class DiscoveryComm:
         }
         self.neighbors = [init_info]  # members already identified by me
         # initialize socket
-        if not hasattr(socket, 'SO_REUSEPORT'):
-            socketopn = socket.SO_REUSEADDR
-        else:
-            socketopn = socket.SO_REUSEPORT
+        # if not hasattr(socket, 'SO_REUSEPORT'):
+        #     socketopn = socket.SO_REUSEADDR
+        # else:
+        #     socketopn = socket.SO_REUSEPORT
+        
         self.discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.discovery_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
+        # self.discovery_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
         self.discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         self.receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.receiver_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
+        # self.receiver_socket.setsockopt(socket.SOL_SOCKET, socketopn, 1)
         self.receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         self.receiver_socket.bind(('', self.discovery_port))
 
