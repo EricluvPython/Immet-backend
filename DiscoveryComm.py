@@ -87,7 +87,7 @@ class DiscoveryComm:
             if data:
                 received_info = json.loads(data.decode('utf-8'))
                 if received_info["ip"] != self.ip:
-                    print(f"Received discovery message: {received_info}")
+                    # print(f"Received discovery message: {received_info}")
                     self.update_status(received_info)
 
     # start discovering nearby machines in the network and update the list accordingly
