@@ -9,9 +9,7 @@ def test_discovery():
         time.sleep(5)
 
 def test_filetransfer():
-    mycomm = DiscoveryComm.DiscoveryComm(100)
-    apple_ip = "10.27.236.109"
-    win_ip = "169.254.15.133"
+    mycomm = DiscoveryComm.DiscoveryComm()
     mycomm.initiate_file_transfer(apple_ip, "./host_files/hello.txt")
 
 if __name__ == "__main__":

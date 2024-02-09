@@ -4,7 +4,6 @@ import threading
 import time
 import platform
 import subprocess
-import netifaces as ni
 
 
 class DiscoveryComm:
