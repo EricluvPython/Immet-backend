@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the backend for Immet, for the Lifelines Hackathon, in the category of Media & Awareness.
+Hi! This is the backend for Immet, for the Lifelines Hackathon, in the category of Media & Awareness.
 
 ## Testing scripts
 
